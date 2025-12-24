@@ -450,9 +450,23 @@
           </p>
         </header>
 
+        <!-- Success Message -->
+        <div id="form-success" class="contact-form__success" style="display: none;">
+          <div class="contact-form__success-content">
+            <span class="contact-form__success-icon">✓</span>
+            <h3 class="contact-form__success-title">
+              <span data-lang-en="Message Sent!" data-lang-th="ส่งข้อความแล้ว!"></span>
+            </h3>
+            <p class="contact-form__success-text">
+              <span data-lang-en="Thank you for reaching out. We'll get back to you soon!" data-lang-th="ขอบคุณที่ติดต่อมา เราจะตอบกลับโดยเร็ว!"></span>
+            </p>
+          </div>
+        </div>
+
         <form
           name="contact"
           method="POST"
+          action="/contact.html?success=true"
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="contact-form animate-slide"
@@ -711,5 +725,18 @@
 
   <!-- Animations -->
   <script type="module" src="js/animations.js"></script>
+
+  <!-- Form Success Handler -->
+  <script>
+    if (new URLSearchParams(window.location.search).has('success')) {
+      const successMsg = document.getElementById('form-success');
+      const form = document.querySelector('.contact-form');
+      if (successMsg && form) {
+        successMsg.style.display = 'block';
+        form.style.display = 'none';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  </script>
 </body>
 </html>

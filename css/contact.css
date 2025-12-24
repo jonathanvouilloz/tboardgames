@@ -958,6 +958,63 @@
 
 
 /* ============================================
+   FORM SUCCESS MESSAGE
+   ============================================ */
+
+.contact-form__success {
+  background: var(--lime-500);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  animation: successFadeIn 0.5s ease-out;
+}
+
+.contact-form__success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.contact-form__success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--gray-900);
+  color: var(--lime-500);
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contact-form__success-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.contact-form__success-text {
+  font-size: var(--text-base);
+  color: var(--gray-800);
+  margin: 0;
+}
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================
    REDUCED MOTION
    ============================================ */
 
