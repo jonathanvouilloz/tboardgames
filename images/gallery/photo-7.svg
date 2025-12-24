@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <rect fill="#FFF59D" width="1600" height="1200"/>
+  <rect fill="#FFEB3B" x="100" y="300" width="600" height="400" rx="20"/>
+  <rect fill="#FFEB3B" x="900" y="300" width="600" height="400" rx="20"/>
+  <circle fill="#FBC02D" cx="250" cy="200" r="60"/>
+  <circle fill="#FBC02D" cx="450" cy="180" r="60"/>
+  <circle fill="#FBC02D" cx="650" cy="200" r="60"/>
+  <circle fill="#FBC02D" cx="950" cy="180" r="60"/>
+  <circle fill="#FBC02D" cx="1150" cy="200" r="60"/>
+  <circle fill="#FBC02D" cx="1350" cy="180" r="60"/>
+  <rect fill="#F9A825" x="150" y="400" width="200" height="150" rx="10"/>
+  <rect fill="#F9A825" x="400" y="400" width="250" height="150" rx="10"/>
+  <rect fill="#F9A825" x="950" y="400" width="200" height="150" rx="10"/>
+  <rect fill="#F9A825" x="1200" y="400" width="250" height="150" rx="10"/>
+  <circle fill="#fff" opacity="0.5" cx="250" cy="475" r="30"/>
+  <circle fill="#fff" opacity="0.5" cx="525" cy="475" r="30"/>
+  <circle fill="#fff" opacity="0.5" cx="1050" cy="475" r="30"/>
+  <circle fill="#fff" opacity="0.5" cx="1325" cy="475" r="30"/>
+  <rect fill="#F57F17" x="200" y="800" width="300" height="80" rx="40"/>
+  <rect fill="#F57F17" x="650" y="800" width="300" height="80" rx="40"/>
+  <rect fill="#F57F17" x="1100" y="800" width="300" height="80" rx="40"/>
+  <text x="800" y="1050" font-family="Arial, sans-serif" font-size="48" fill="#5D4037" text-anchor="middle" opacity="0.8">Game Night Event</text>
+</svg>

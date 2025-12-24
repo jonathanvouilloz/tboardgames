@@ -1,0 +1,152 @@
+/**
+ * 404 Page Styles
+ * Fun and friendly error page for T Board Games & Cafe
+ */
+
+/* ============================================
+   ERROR SECTION - Main container
+   ============================================ */
+
+.error-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-soft);
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background pattern */
+.error-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--pink-200) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, var(--lime-400) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, var(--yellow-400) 0%, transparent 30%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* ============================================
+   ERROR CONTENT - Centered container
+   ============================================ */
+
+.error-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   ILLUSTRATION - Dice SVG
+   ============================================ */
+
+.error-illustration {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .error-illustration {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ============================================
+   ERROR CODE - Big "404"
+   ============================================ */
+
+.error-code {
+  font-family: var(--font-heading);
+  font-size: clamp(6rem, 18vw, 10rem);
+  font-weight: 700;
+  color: var(--lime-500);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  text-shadow:
+    4px 4px 0 var(--lime-400),
+    8px 8px 0 rgba(168, 217, 115, 0.2);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ============================================
+   ERROR TITLE
+   ============================================ */
+
+.error-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  color: var(--dark-900);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .error-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* ============================================
+   ERROR MESSAGE
+   ============================================ */
+
+.error-message {
+  font-size: var(--text-lg);
+  color: var(--dark-700);
+  margin-bottom: var(--space-8);
+  max-width: 45ch;
+  margin-inline: auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   ERROR ACTIONS - Button group
+   ============================================ */
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+/* ============================================
+   ANIMATIONS - Floating dice
+   ============================================ */
+
+@keyframes dice-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.error-illustration svg {
+  animation: dice-float 3s ease-in-out infinite;
+}
+
+/* Individual dice animations with delays */
+.error-illustration .dice-1 {
+  animation: dice-float 3s ease-in-out infinite;
+}
+
+.error-illustration .dice-2 {
+  animation: dice-float 3.5s ease-in-out 0.3s infinite;
+}
+
+.error-illustration .dice-3 {
+  animation: dice-float 2.8s ease-in-out 0.6s infinite;
+}

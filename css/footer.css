@@ -1,0 +1,240 @@
+/**
+ * T Board Games & Cafe - Footer
+ * Site footer with links, contact, and social
+ */
+
+/* ============================================
+   FOOTER BASE
+   ============================================ */
+
+.footer {
+  background-color: var(--dark-900);
+  color: var(--white);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-8);
+}
+
+
+/* ============================================
+   FOOTER CONTAINER
+   ============================================ */
+
+.footer__container {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer__container {
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--space-8);
+  }
+}
+
+
+/* ============================================
+   FOOTER BRAND
+   ============================================ */
+
+.footer__brand {
+  max-width: 300px;
+}
+
+.footer__logo {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+}
+
+.footer__logo img {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer__tagline {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  color: var(--lime-400);
+  margin-bottom: var(--space-4);
+}
+
+.footer__description {
+  font-size: var(--text-sm);
+  color: var(--dark-700);
+  line-height: var(--leading-relaxed);
+}
+
+
+/* ============================================
+   FOOTER NAVIGATION
+   ============================================ */
+
+.footer__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+
+.footer__nav-item {
+  margin-bottom: var(--space-3);
+}
+
+.footer__nav-link {
+  font-size: var(--text-sm);
+  color: var(--dark-700);
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-smooth);
+}
+
+.footer__nav-link:hover {
+  color: var(--lime-400);
+  text-decoration: none;
+}
+
+
+/* ============================================
+   FOOTER CONTACT
+   ============================================ */
+
+.footer__contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--dark-700);
+}
+
+.footer__contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.footer__contact-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--lime-400);
+  margin-top: 2px;
+}
+
+.footer__contact-link {
+  color: var(--dark-700);
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-smooth);
+}
+
+.footer__contact-link:hover {
+  color: var(--lime-400);
+}
+
+
+/* ============================================
+   FOOTER SOCIAL
+   ============================================ */
+
+.footer__social {
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .footer__social {
+    margin-top: 0;
+  }
+}
+
+.footer__social-list {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--dark-800);
+  border-radius: var(--radius-full);
+  color: var(--white);
+  text-decoration: none;
+  transition: all var(--duration-base) var(--ease-smooth);
+}
+
+.social-link:hover {
+  background-color: var(--lime-500);
+  color: var(--dark-900);
+  transform: translateY(-2px);
+}
+
+.social-link:focus-visible {
+  outline: 2px solid var(--lime-400);
+  outline-offset: 2px;
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* ============================================
+   FOOTER BOTTOM
+   ============================================ */
+
+.footer__bottom {
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--dark-800);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer__copyright {
+  font-size: var(--text-sm);
+  color: var(--dark-700);
+  margin: 0;
+}
+
+.footer__made-with {
+  font-size: var(--text-sm);
+  color: var(--dark-700);
+  margin: 0;
+}
+
+.footer__made-with span {
+  color: var(--pink-300);
+}

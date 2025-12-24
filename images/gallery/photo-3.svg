@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <rect fill="#FFE66D" width="1600" height="1200"/>
+  <rect fill="#FDD835" x="100" y="200" width="200" height="800" rx="10"/>
+  <rect fill="#FDD835" x="350" y="200" width="200" height="800" rx="10"/>
+  <rect fill="#FDD835" x="600" y="200" width="200" height="800" rx="10"/>
+  <rect fill="#FDD835" x="850" y="200" width="200" height="800" rx="10"/>
+  <rect fill="#FDD835" x="1100" y="200" width="200" height="800" rx="10"/>
+  <rect fill="#FDD835" x="1350" y="200" width="150" height="800" rx="10"/>
+  <rect fill="#FBC02D" x="120" y="250" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="120" y="310" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="120" y="370" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="370" y="250" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="370" y="310" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="620" y="250" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="620" y="310" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="620" y="370" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="620" y="430" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="870" y="250" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="1120" y="250" width="160" height="40" rx="5"/>
+  <rect fill="#FBC02D" x="1120" y="310" width="160" height="40" rx="5"/>
+  <text x="800" y="1100" font-family="Arial, sans-serif" font-size="48" fill="#5D4037" text-anchor="middle" opacity="0.8">Game Shelves</text>
+</svg>

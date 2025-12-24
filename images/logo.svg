@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;display=swap');
+    </style>
+  </defs>
+  <text x="100" y="35" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="24" letter-spacing="-0.5" fill="#1A1D1F">T Board Games</text>
+</svg>

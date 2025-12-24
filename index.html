@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="T Board Games & Cafe - Your favorite board game cafe in Chiang Mai. Over 100 games, great coffee, and a welcoming atmosphere for all players.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="T Board Games & Cafe">
+  <meta property="og:description" content="Your Board Game Haven in Chiang Mai">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tboardgames.com">
+  <meta property="og:image" content="images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
+
+  <!-- Google Fonts: Fredoka (headings) + Poppins (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/mobile-menu.css">
+  <link rel="stylesheet" href="css/homepage.css">
+
+  <!-- JavaScript (must load before Alpine.js to register stores) -->
+  <script src="js/nav.js" type="module"></script>
+  <script src="js/lang.js" type="module"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <title>T Board Games & Cafe | Board Game Haven in Chiang Mai</title>
+</head>
+<body>
+  <!-- Skip Link (Accessibility) -->
+  <a href="#main-content" class="skip-link">
+    <span data-lang-en="Skip to main content" data-lang-th="ข้ามไปยังเนื้อหาหลัก"></span>
+  </a>
+
+  <!-- Header -->
+  <header class="header" x-data>
+    <div class="header__container container">
+      <!-- Logo -->
+      <a href="index.html" class="header__logo" aria-label="T Board Games & Cafe - Home">
+        <img src="images/logo.svg" alt="T Board Games & Cafe">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link nav__link--active">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="cafe.html" class="nav__link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="games.html" class="nav__link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="gallery.html" class="nav__link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header__actions">
+        <!-- Language Toggle -->
+        <button
+          class="lang-toggle"
+          @click="$store.language.toggle()"
+          :aria-label="$store.language.current === 'en' ? 'Switch to Thai' : 'Switch to English'"
+        >
+          <span x-text="$store.language.current === 'en' ? 'TH' : 'EN'"></span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="menu-toggle"
+          :class="{ 'menu-toggle--open': $store.mobileMenu.isOpen }"
+          @click="$store.mobileMenu.toggle()"
+          aria-label="Toggle menu"
+          :aria-expanded="$store.mobileMenu.isOpen.toString()"
+        >
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" x-data :class="{ 'mobile-menu--open': $store.mobileMenu.isOpen }" @keydown.escape.window="$store.mobileMenu.close()">
+    <!-- Overlay -->
+    <div class="mobile-menu__overlay" @click="$store.mobileMenu.close()" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="mobile-menu__content">
+      <!-- Header -->
+      <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+          <img src="images/logo.svg" alt="T Board Games & Cafe">
+        </a>
+        <button class="mobile-menu__close" @click="$store.mobileMenu.close()" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="index.html" class="mobile-menu__link mobile-menu__link--active">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="cafe.html" class="mobile-menu__link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="games.html" class="mobile-menu__link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="gallery.html" class="mobile-menu__link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="contact.html" class="mobile-menu__link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Footer -->
+      <div class="mobile-menu__footer">
+        <!-- Language Toggle -->
+        <div class="mobile-menu__lang">
+          <button
+            class="mobile-menu__lang-btn"
+            :class="{ 'mobile-menu__lang-btn--active': $store.language.isActive('en') }"
+            @click="$store.language.setLanguage('en')"
+          >
+            English
+          </button>
+          <button
+            class="mobile-menu__lang-btn"
+            :class="{ 'mobile-menu__lang-btn--active': $store.language.isActive('th') }"
+            @click="$store.language.setLanguage('th')"
+          >
+            ไทย
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="mobile-menu__social">
+          <a href="https://instagram.com/tboardgamescafe" class="mobile-menu__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com/tboardgamescafe" class="mobile-menu__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com/@tboardgamescafe" class="mobile-menu__social-link" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Bento Hero Section -->
+    <section class="bento-hero" aria-labelledby="hero-title">
+
+      <!-- Card 1: Intro -->
+      <article class="bento-card bento-card--intro">
+        <h1 id="hero-title" class="bento-card__title">
+          <span data-lang-en="T Board Games" data-lang-th="ที บอร์ดเกม"></span>
+          <span data-lang-en="& Cafe" data-lang-th="แอนด์ คาเฟ่"></span>
+        </h1>
+        <p class="bento-card__description">
+          <span
+            data-lang-en="Your favorite board game cafe in Chiang Mai. 100+ games, great coffee, and a welcoming atmosphere."
+            data-lang-th="คาเฟ่บอร์ดเกมโปรดของคุณในเชียงใหม่ เกมมากกว่า 100 เกม กาแฟอร่อย และบรรยากาศที่เป็นกันเอง"
+          ></span>
+        </p>
+        <div class="bento-card__actions">
+          <a href="games.html" class="btn btn--primary btn--pill">
+            <span data-lang-en="Explore Games" data-lang-th="สำรวจเกม"></span>
+          </a>
+          <a href="contact.html" class="btn btn--icon" aria-label="Visit us">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: Featured Game -->
+      <article class="bento-card bento-card--featured">
+        <a href="games.html" class="bento-card__link" aria-label="View Catan game"></a>
+        <img src="images/games/catan.webp" alt="Catan board game" class="bento-card__bg" loading="eager">
+        <div class="bento-card__overlay" aria-hidden="true"></div>
+        <span class="bento-card__badge" aria-label="Featured game">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+          </svg>
+        </span>
+        <div class="bento-card__content">
+          <div class="bento-card__text">
+            <h2>Catan</h2>
+            <p>
+              <span
+                data-lang-en="The classic strategy game of trading and building"
+                data-lang-th="เกมกลยุทธ์คลาสสิกเกี่ยวกับการค้าและการสร้าง"
+              ></span>
+            </p>
+          </div>
+          <a href="games.html" class="btn btn--white btn--sm">
+            <span data-lang-en="Play Now" data-lang-th="เล่นเลย"></span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: Café -->
+      <article class="bento-card bento-card--cafe">
+        <a href="cafe.html" class="bento-card__link" aria-label="View Cafe menu"></a>
+        <div class="bento-card__header">
+          <h2>
+            <span data-lang-en="Café" data-lang-th="คาเฟ่"></span>
+          </h2>
+          <a href="cafe.html">
+            <span data-lang-en="View Menu" data-lang-th="ดูเมนู"></span>
+          </a>
+        </div>
+        <div class="bento-card__preview">
+          <div class="bento-card__preview-item">
+            <img src="images/hero/cafe-1-home.webp" alt="Thai tea cake" loading="lazy">
+          </div>
+          <div class="bento-card__preview-item">
+            <img src="images/hero/cafe-2-home.webp" alt="Blue ice cream drinks" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Follow Us -->
+      <article class="bento-card bento-card--social">
+        <div class="bento-card__header">
+          <h2>
+            <span data-lang-en="Follow Us" data-lang-th="ติดตามเรา"></span>
+          </h2>
+          <a href="contact.html">
+            <span data-lang-en="Contact Us" data-lang-th="ติดต่อเรา"></span>
+          </a>
+        </div>
+        <div class="bento-card__socials">
+          <a href="https://facebook.com/tboardgamescafe" class="bento-social" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/tboardgamescafe" class="bento-social" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com/@tboardgamescafe" class="bento-social" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- About Section - Story Scroll -->
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <header class="about-header">
+        <div class="about-header__badge">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span data-lang-en="Our Story" data-lang-th="เรื่องราวของเรา"></span>
+        </div>
+        <h2 id="about-title" class="about-header__title">
+          <span data-lang-en="More Than Just" data-lang-th="มากกว่าแค่"></span><br>
+          <span data-lang-en="a Cafe" data-lang-th="คาเฟ่"></span>
+        </h2>
+      </header>
+
+      <div class="about-stories">
+        <!-- Story Card 1 -->
+        <article class="story-card animate-fade stagger-1">
+          <div class="story-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+          <h3 class="story-card__title">
+            <span data-lang-en="A Passion Project" data-lang-th="โปรเจกต์แห่งความหลงใหล"></span>
+          </h3>
+          <p class="story-card__text">
+            <span data-lang-en="Born from a love of board games and great coffee, T Board Games is Chiang Mai's cozy corner for tabletop adventures." data-lang-th="เกิดจากความรักในบอร์ดเกมและกาแฟรสเลิศ T Board Games เป็นมุมอบอุ่นสำหรับการผจญภัยบนโต๊ะในเชียงใหม่"></span>
+          </p>
+        </article>
+
+        <!-- Story Card 2 -->
+        <article class="story-card animate-fade stagger-2">
+          <div class="story-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+            </svg>
+          </div>
+          <h3 class="story-card__title">
+            <span data-lang-en="Everyone's Welcome" data-lang-th="ยินดีต้อนรับทุกคน"></span>
+          </h3>
+          <p class="story-card__text">
+            <span data-lang-en="Whether you're a seasoned strategist or picking up dice for the first time, our friendly staff will help you find your perfect game." data-lang-th="ไม่ว่าคุณจะเป็นนักกลยุทธ์ที่มากประสบการณ์หรือหยิบลูกเต๋าเป็นครั้งแรก พนักงานที่เป็นมิตรของเราจะช่วยคุณหาเกมที่เหมาะสม"></span>
+          </p>
+        </article>
+
+        <!-- Story Card 3 -->
+        <article class="story-card animate-fade stagger-3">
+          <div class="story-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/>
+            </svg>
+          </div>
+          <h3 class="story-card__title">
+            <span data-lang-en="Unforgettable Nights" data-lang-th="ค่ำคืนที่ไม่ลืมเลือน"></span>
+          </h3>
+          <p class="story-card__text">
+            <span data-lang-en="From epic battles to hilarious bluffs, every game night creates stories worth sharing. Come make memories with us." data-lang-th="จากการต่อสู้สุดมันส์สู่การบลัฟสุดฮา ทุกคืนเกมสร้างเรื่องราวที่ควรค่าแก่การแชร์ มาสร้างความทรงจำกับเรา"></span>
+          </p>
+        </article>
+      </div>
+
+      <div class="scroll-dots" aria-hidden="true">
+        <span class="scroll-dot active"></span>
+        <span class="scroll-dot"></span>
+        <span class="scroll-dot"></span>
+      </div>
+    </section>
+
+    <!-- Features Section - Game Tiles -->
+    <section class="features-section" id="features" aria-labelledby="features-title">
+      <div class="features-container">
+        <header class="features-header">
+          <h2 id="features-title" class="features-header__title">
+            <span data-lang-en="Why You'll Love It Here" data-lang-th="ทำไมคุณจะชอบที่นี่"></span>
+          </h2>
+        </header>
+
+        <div class="features-grid">
+          <!-- Feature 1: Games -->
+          <article class="feature-tile feature-tile--games animate-scale stagger-1">
+            <div class="feature-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+              </svg>
+            </div>
+            <div class="feature-tile__content">
+              <h3 class="feature-tile__title">
+                <span data-lang-en="100+ Games" data-lang-th="เกมมากกว่า 100 เกม"></span>
+              </h3>
+              <p class="feature-tile__desc">
+                <span data-lang-en="From classic favorites to modern hits" data-lang-th="ตั้งแต่เกมคลาสสิกไปจนถึงเกมยอดนิยมสมัยใหม่"></span>
+              </p>
+            </div>
+          </article>
+
+          <!-- Feature 2: Coffee -->
+          <article class="feature-tile feature-tile--coffee animate-scale stagger-2">
+            <div class="feature-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611l-.028.005A21.068 21.068 0 0112 21c-2.773 0-5.491-.425-8.107-1.282l-.028-.005c-1.716-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+              </svg>
+            </div>
+            <div class="feature-tile__content">
+              <h3 class="feature-tile__title">
+                <span data-lang-en="Great Coffee & Snacks" data-lang-th="กาแฟและของว่างอร่อย"></span>
+              </h3>
+              <p class="feature-tile__desc">
+                <span data-lang-en="Fuel your game nights right" data-lang-th="เติมพลังให้คืนเกมของคุณ"></span>
+              </p>
+            </div>
+          </article>
+
+          <!-- Feature 3: Community -->
+          <article class="feature-tile feature-tile--community animate-scale stagger-3">
+            <div class="feature-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+              </svg>
+            </div>
+            <div class="feature-tile__content">
+              <h3 class="feature-tile__title">
+                <span data-lang-en="Welcoming Community" data-lang-th="ชุมชนที่เป็นกันเอง"></span>
+              </h3>
+              <p class="feature-tile__desc">
+                <span data-lang-en="Make new friends, every visit" data-lang-th="สร้างเพื่อนใหม่ ทุกครั้งที่มา"></span>
+              </p>
+            </div>
+          </article>
+
+          <!-- Feature 4: Events -->
+          <article class="feature-tile feature-tile--events animate-scale stagger-4">
+            <div class="feature-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+              </svg>
+            </div>
+            <div class="feature-tile__content">
+              <h3 class="feature-tile__title">
+                <span data-lang-en="Regular Events" data-lang-th="กิจกรรมประจำ"></span>
+              </h3>
+              <p class="feature-tile__desc">
+                <span data-lang-en="Tournaments & special game nights" data-lang-th="ทัวร์นาเมนต์และคืนเกมพิเศษ"></span>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section - Dark Event Cards -->
+    <section class="events-section-new" id="events" aria-labelledby="events-title">
+      <div class="events-container">
+        <header class="events-header-new">
+          <div class="events-header__badge">
+            <span data-lang-en="What's Coming Up" data-lang-th="กิจกรรมที่กำลังจะมาถึง"></span>
+          </div>
+          <h2 id="events-title" class="events-header__title">
+            <span data-lang-en="Upcoming Events" data-lang-th="กิจกรรมที่กำลังจะมาถึง"></span>
+          </h2>
+        </header>
+
+        <div class="events-scroll">
+          <!-- Event 1: Friday Game Night -->
+          <article class="event-card-new animate-slide stagger-1">
+            <div class="event-card-new__header">
+              <div class="event-card-new__date">
+                <span class="event-card-new__day">26</span>
+                <span class="event-card-new__month" data-lang-en="Dec" data-lang-th="ธ.ค."></span>
+              </div>
+              <h3 class="event-card-new__title">
+                <span data-lang-en="Friday Game Night" data-lang-th="คืนเกมวันศุกร์"></span>
+              </h3>
+              <time class="event-card-new__time" datetime="2025-12-26T19:00">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>19:00</span>
+              </time>
+            </div>
+            <div class="event-card-new__body">
+              <p class="event-card-new__desc">
+                <span data-lang-en="Join us for a casual game night every Friday. Bring your friends or make new ones!" data-lang-th="มาร่วมกับเราในคืนเกมแบบสบายๆ ทุกวันศุกร์ พาเพื่อนมาหรือสร้างเพื่อนใหม่!"></span>
+              </p>
+              <a href="contact.html" class="event-card-new__cta">
+                <span data-lang-en="Learn more" data-lang-th="เรียนรู้เพิ่มเติม"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Event 2: New Year Marathon (Featured) -->
+          <article class="event-card-new event-card-new--featured animate-slide stagger-2">
+            <div class="event-card-new__header">
+              <div class="event-card-new__date">
+                <span class="event-card-new__day">01</span>
+                <span class="event-card-new__month" data-lang-en="Jan" data-lang-th="ม.ค."></span>
+              </div>
+              <h3 class="event-card-new__title">
+                <span data-lang-en="New Year Game Marathon" data-lang-th="มาราธอนเกมปีใหม่"></span>
+              </h3>
+              <time class="event-card-new__time" datetime="2026-01-01T13:00">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>13:00 - 01:00</span>
+              </time>
+            </div>
+            <div class="event-card-new__body">
+              <p class="event-card-new__desc">
+                <span data-lang-en="Ring in the new year with 12 hours of non-stop gaming! Special menu and prizes await." data-lang-th="เฉลิมฉลองปีใหม่ด้วยการเล่นเกม 12 ชั่วโมงไม่หยุด! เมนูพิเศษและของรางวัล"></span>
+              </p>
+              <a href="contact.html" class="event-card-new__cta">
+                <span data-lang-en="Reserve spot" data-lang-th="จองที่นั่ง"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Event 3: Catan Tournament -->
+          <article class="event-card-new animate-slide stagger-3">
+            <div class="event-card-new__header">
+              <div class="event-card-new__date">
+                <span class="event-card-new__day">05</span>
+                <span class="event-card-new__month" data-lang-en="Jan" data-lang-th="ม.ค."></span>
+              </div>
+              <h3 class="event-card-new__title">
+                <span data-lang-en="Catan Tournament" data-lang-th="ทัวร์นาเมนต์ Catan"></span>
+              </h3>
+              <time class="event-card-new__time" datetime="2026-01-05T14:00">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>14:00</span>
+              </time>
+            </div>
+            <div class="event-card-new__body">
+              <p class="event-card-new__desc">
+                <span data-lang-en="Monthly Catan tournament. Sign up at the cafe. Prize for the winner!" data-lang-th="ทัวร์นาเมนต์ Catan รายเดือน ลงทะเบียนที่คาเฟ่ มีรางวัลสำหรับผู้ชนะ!"></span>
+              </p>
+              <a href="contact.html" class="event-card-new__cta">
+                <span data-lang-en="Sign up" data-lang-th="ลงทะเบียน"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section - Game Night Invitation -->
+    <section class="cta-section-new" aria-labelledby="cta-title">
+      <div class="cta-container">
+        <span class="cta-emoji" aria-hidden="true">🎲</span>
+        <h2 id="cta-title" class="cta-title">
+          <span data-lang-en="Ready to Roll?" data-lang-th="พร้อมจะทอยหรือยัง?"></span>
+        </h2>
+        <p class="cta-subtitle">
+          <span data-lang-en="Your next adventure is waiting. Come play with us!" data-lang-th="การผจญภัยครั้งต่อไปของคุณกำลังรอ มาเล่นกับเรา!"></span>
+        </p>
+
+        <div class="cta-buttons">
+          <a href="games.html" class="cta-btn cta-btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+            </svg>
+            <span data-lang-en="Browse Games" data-lang-th="ดูเกมทั้งหมด"></span>
+          </a>
+          <a href="contact.html" class="cta-btn cta-btn--secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+            <span data-lang-en="Get Directions" data-lang-th="ดูเส้นทาง"></span>
+          </a>
+        </div>
+
+        <div class="cta-info">
+          <span class="cta-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span data-lang-en="Open Daily 1PM-12AM" data-lang-th="เปิดทุกวัน 13:00-00:00"></span>
+          </span>
+          <span class="cta-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+            <span data-lang-en="Chiang Mai" data-lang-th="เชียงใหม่"></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container container">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <img src="images/logo.svg" alt="T Board Games & Cafe">
+        </a>
+        <p class="footer__tagline">
+          <span data-lang-en="Enjoy Your Game" data-lang-th="เพลิดเพลินกับเกมของคุณ"></span>
+        </p>
+        <p class="footer__description">
+          <span data-lang-en="Your favorite board game cafe in Chiang Mai." data-lang-th="คาเฟ่บอร์ดเกมโปรดของคุณในเชียงใหม่"></span>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Quick Links" data-lang-th="ลิงก์ด่วน"></span>
+        </h3>
+        <ul class="footer__nav">
+          <li class="footer__nav-item">
+            <a href="index.html" class="footer__nav-link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="cafe.html" class="footer__nav-link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="games.html" class="footer__nav-link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="gallery.html" class="footer__nav-link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Visit Us -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Visit Us" data-lang-th="เยี่ยมชมเรา"></span>
+        </h3>
+        <ul class="footer__nav">
+          <li class="footer__nav-item">
+            <a href="contact.html" class="footer__nav-link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="contact.html#map" class="footer__nav-link">
+              <span data-lang-en="Directions" data-lang-th="เส้นทาง"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Contact Us" data-lang-th="ติดต่อเรา"></span>
+        </h3>
+        <ul class="footer__contact-list">
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+            <span data-lang-en="Tanadon Road, Chiang Mai, Thailand" data-lang-th="ถนนตนาดล เชียงใหม่ ประเทศไทย"></span>
+          </li>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span data-lang-en="Open Daily: 1:00 PM - 12:00 AM" data-lang-th="เปิดทุกวัน: 13:00 - 00:00"></span>
+          </li>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+            <a href="mailto:hello@tboardgames.com" class="footer__contact-link">hello@tboardgames.com</a>
+          </li>
+        </ul>
+
+        <!-- Social Links -->
+        <div class="footer__social">
+          <ul class="footer__social-list">
+            <li>
+              <a href="https://instagram.com/tboardgamescafe" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com/tboardgamescafe" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@tboardgamescafe" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer__bottom container">
+      <p class="footer__copyright">
+        <span data-lang-en="2025 T Board Games & Cafe. All rights reserved." data-lang-th="2025 T Board Games & Cafe สงวนลิขสิทธิ์"></span>
+      </p>
+      <p class="footer__made-with">
+        <span data-lang-en="Made with" data-lang-th="สร้างด้วย"></span> <span>&#10084;</span> <span data-lang-en="in Chiang Mai" data-lang-th="ในเชียงใหม่"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Animations -->
+  <script type="module" src="js/animations.js"></script>
+
+  <!-- Scroll Dots Indicator for About Section -->
+  <script>
+    // Update scroll dots based on scroll position
+    const storiesContainer = document.querySelector('.about-stories');
+    const dots = document.querySelectorAll('.scroll-dot');
+
+    if (storiesContainer && dots.length > 0) {
+      storiesContainer.addEventListener('scroll', () => {
+        const scrollLeft = storiesContainer.scrollLeft;
+        const cardWidth = storiesContainer.querySelector('.story-card').offsetWidth;
+        const gap = 16;
+        const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeIndex);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

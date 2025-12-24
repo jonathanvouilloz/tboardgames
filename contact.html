@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Visit T Board Games & Cafe in Chiang Mai. Find our address, opening hours, phone number, and directions. Open daily 1PM-12AM.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Contact - T Board Games & Cafe">
+  <meta property="og:description" content="Visit T Board Games & Cafe in Chiang Mai. Find our address, hours, and directions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tboardgames.com/contact">
+  <meta property="og:image" content="images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
+
+  <!-- Google Fonts: Fredoka (headings) + Poppins (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/mobile-menu.css">
+  <link rel="stylesheet" href="css/contact.css">
+
+  <!-- JavaScript (must load before Alpine.js to register stores) -->
+  <script src="js/nav.js" type="module"></script>
+  <script src="js/lang.js" type="module"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <title>Contact - T Board Games & Cafe Chiang Mai</title>
+</head>
+<body>
+  <!-- Skip Link (Accessibility) -->
+  <a href="#main-content" class="skip-link">
+    <span data-lang-en="Skip to main content" data-lang-th="ข้ามไปยังเนื้อหาหลัก"></span>
+  </a>
+
+  <!-- Header -->
+  <header class="header" x-data>
+    <div class="header__container container">
+      <!-- Logo -->
+      <a href="index.html" class="header__logo" aria-label="T Board Games & Cafe - Home">
+        <img src="images/logo.svg" alt="T Board Games & Cafe">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="cafe.html" class="nav__link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="games.html" class="nav__link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="gallery.html" class="nav__link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link nav__link--active">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header__actions">
+        <!-- Language Toggle -->
+        <button
+          class="lang-toggle"
+          @click="$store.language.toggle()"
+          :aria-label="$store.language.current === 'en' ? 'Switch to Thai' : 'Switch to English'"
+        >
+          <span x-text="$store.language.current === 'en' ? 'TH' : 'EN'"></span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="menu-toggle"
+          :class="{ 'menu-toggle--open': $store.mobileMenu.isOpen }"
+          @click="$store.mobileMenu.toggle()"
+          aria-label="Toggle menu"
+          :aria-expanded="$store.mobileMenu.isOpen.toString()"
+        >
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" x-data :class="{ 'mobile-menu--open': $store.mobileMenu.isOpen }" @keydown.escape.window="$store.mobileMenu.close()">
+    <!-- Overlay -->
+    <div class="mobile-menu__overlay" @click="$store.mobileMenu.close()" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="mobile-menu__content">
+      <!-- Header -->
+      <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+          <img src="images/logo.svg" alt="T Board Games & Cafe">
+        </a>
+        <button class="mobile-menu__close" @click="$store.mobileMenu.close()" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="index.html" class="mobile-menu__link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="cafe.html" class="mobile-menu__link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="games.html" class="mobile-menu__link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="gallery.html" class="mobile-menu__link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="contact.html" class="mobile-menu__link mobile-menu__link--active">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Footer -->
+      <div class="mobile-menu__footer">
+        <!-- Language Toggle -->
+        <div class="mobile-menu__lang">
+          <button
+            class="mobile-menu__lang-btn"
+            :class="{ 'mobile-menu__lang-btn--active': $store.language.isActive('en') }"
+            @click="$store.language.setLanguage('en')"
+          >
+            English
+          </button>
+          <button
+            class="mobile-menu__lang-btn"
+            :class="{ 'mobile-menu__lang-btn--active': $store.language.isActive('th') }"
+            @click="$store.language.setLanguage('th')"
+          >
+            ไทย
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="mobile-menu__social">
+          <a href="https://instagram.com/tboardgamescafe" class="mobile-menu__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com/tboardgamescafe" class="mobile-menu__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com/@tboardgamescafe" class="mobile-menu__social-link" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section - Immersive Full Height -->
+    <section class="contact-hero" aria-labelledby="hero-title">
+      <!-- Background Image -->
+      <div class="contact-hero__background">
+        <img
+          src="images/hero/homepage.jpg"
+          alt=""
+          class="contact-hero__image"
+          loading="eager"
+        >
+        <div class="contact-hero__overlay"></div>
+        <div class="contact-hero__pattern"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="contact-hero__content">
+        <!-- Location Icon -->
+        <div class="contact-hero__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <h1 id="hero-title" class="contact-hero__title">
+          <span data-lang-en="Visit Us" data-lang-th="เยี่ยมชมเรา"></span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="contact-hero__subtitle">
+          <span data-lang-en="Your table is waiting. Let's play!" data-lang-th="โต๊ะของคุณพร้อมแล้ว มาเล่นกัน!"></span>
+        </p>
+
+        <!-- Hours Badge -->
+        <div class="contact-hero__badge">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span data-lang-en="Open Daily 1PM - 12AM" data-lang-th="เปิดทุกวัน 13:00 - 00:00"></span>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="contact-hero__actions">
+          <a href="https://wa.me/66XXXXXXXXX" class="contact-hero__btn contact-hero__btn--whatsapp" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-lang-en="Chat on WhatsApp" data-lang-th="แชทบน WhatsApp"></span>
+          </a>
+          <a href="https://maps.app.goo.gl/TBoardGamesCafe" class="contact-hero__btn contact-hero__btn--directions" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+            </svg>
+            <span data-lang-en="Get Directions" data-lang-th="ดูเส้นทาง"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="contact-hero__scroll">
+        <span data-lang-en="Scroll to explore" data-lang-th="เลื่อนเพื่อดูเพิ่มเติม"></span>
+        <svg class="contact-hero__scroll-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Contact Tiles Section -->
+    <section class="contact-tiles" id="contact-info" aria-labelledby="tiles-title">
+      <div class="container">
+        <header class="contact-tiles__header animate-fade">
+          <h2 id="tiles-title" class="contact-tiles__title">
+            <span data-lang-en="Get in Touch" data-lang-th="ติดต่อเรา"></span>
+          </h2>
+          <p class="contact-tiles__subtitle">
+            <span data-lang-en="Choose your favorite way to reach us" data-lang-th="เลือกวิธีที่คุณชอบในการติดต่อเรา"></span>
+          </p>
+        </header>
+
+        <div class="contact-tiles__grid">
+          <!-- Location Tile -->
+          <a href="https://maps.app.goo.gl/TBoardGamesCafe" class="contact-tile contact-tile--location animate-slide stagger-1" target="_blank" rel="noopener">
+            <div class="contact-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+              </svg>
+            </div>
+            <h3 class="contact-tile__label">
+              <span data-lang-en="Location" data-lang-th="ที่ตั้ง"></span>
+            </h3>
+            <p class="contact-tile__value">
+              <span data-lang-en="Tanadon Road, Chiang Mai" data-lang-th="ถนนตนาดล เชียงใหม่"></span>
+            </p>
+            <span class="contact-tile__action">
+              <span data-lang-en="View on map" data-lang-th="ดูบนแผนที่"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Phone Tile -->
+          <a href="tel:+66XXXXXXXX" class="contact-tile contact-tile--phone animate-slide stagger-2">
+            <div class="contact-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+              </svg>
+            </div>
+            <h3 class="contact-tile__label">
+              <span data-lang-en="Call Us" data-lang-th="โทรหาเรา"></span>
+            </h3>
+            <p class="contact-tile__value">+66 XX XXX XXXX</p>
+            <span class="contact-tile__action">
+              <span data-lang-en="Tap to call" data-lang-th="แตะเพื่อโทร"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- WhatsApp Tile -->
+          <a href="https://wa.me/66XXXXXXXXX" class="contact-tile contact-tile--whatsapp animate-slide stagger-3" target="_blank" rel="noopener">
+            <div class="contact-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <h3 class="contact-tile__label">WhatsApp</h3>
+            <p class="contact-tile__value">
+              <span data-lang-en="Quick chat with us" data-lang-th="แชทด่วนกับเรา"></span>
+            </p>
+            <span class="contact-tile__action">
+              <span data-lang-en="Open chat" data-lang-th="เปิดแชท"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Hours Tile -->
+          <div class="contact-tile contact-tile--hours animate-slide stagger-4">
+            <div class="contact-tile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="contact-tile__label">
+              <span data-lang-en="Opening Hours" data-lang-th="เวลาเปิดทำการ"></span>
+            </h3>
+            <p class="contact-tile__value">
+              <span data-lang-en="Daily: 1:00 PM - 12:00 AM" data-lang-th="ทุกวัน: 13:00 - 00:00"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="contact-map-section" id="map" aria-labelledby="map-title">
+      <header class="contact-map-section__header animate-fade">
+        <h2 id="map-title" class="contact-map-section__title">
+          <span data-lang-en="Find Us" data-lang-th="ค้นหาเรา"></span>
+        </h2>
+        <p class="contact-map-section__address">
+          <span data-lang-en="Tanadon Road, Chiang Mai, Thailand" data-lang-th="ถนนตนาดล เชียงใหม่ ประเทศไทย"></span>
+        </p>
+      </header>
+
+      <div class="contact-map animate-scale">
+        <iframe
+          class="contact-map__iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.789183886781!2d98.95517437588707!3d18.80754616034398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3b2325ba820d%3A0xe5629c22191ef971!2sT%20board%20games%20%26%20Cafe!5e0!3m2!1sfr!2sth!4v1766394089946!5m2!1sfr!2sth"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="T Board Games & Cafe location on Google Maps"
+        ></iframe>
+        <div class="contact-map__footer">
+          <a href="https://maps.app.goo.gl/TBoardGamesCafe" class="contact-map__link" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
+            <span data-lang-en="Open in Google Maps" data-lang-th="เปิดใน Google Maps"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="contact-social" aria-labelledby="social-title">
+      <span class="contact-social__emoji" aria-hidden="true">🎲</span>
+      <h2 id="social-title" class="contact-social__title animate-fade">
+        <span data-lang-en="Join the Game!" data-lang-th="มาเล่นกับเรา!"></span>
+      </h2>
+      <p class="contact-social__subtitle animate-fade">
+        <span data-lang-en="Follow us for updates and special events" data-lang-th="ติดตามเราเพื่อรับข่าวสารและกิจกรรมพิเศษ"></span>
+      </p>
+
+      <ul class="contact-social__list animate-scale">
+        <li>
+          <a href="https://instagram.com/tboardgamescafe" class="contact-social__link contact-social__link--instagram" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com/tboardgamescafe" class="contact-social__link contact-social__link--facebook" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://tiktok.com/@tboardgamescafe" class="contact-social__link contact-social__link--tiktok" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form" aria-labelledby="form-title">
+      <div class="contact-form-wrapper">
+        <header class="contact-form-header animate-fade">
+          <span class="contact-form-header__icon" aria-hidden="true">💌</span>
+          <h2 id="form-title" class="contact-form__title">
+            <span data-lang-en="Send a Message" data-lang-th="ส่งข้อความ"></span>
+          </h2>
+          <p class="contact-form__subtitle">
+            <span data-lang-en="Got a question? We're all ears!" data-lang-th="มีคำถาม? เรายินดีรับฟัง!"></span>
+          </p>
+        </header>
+
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form animate-slide"
+        >
+          <!-- Hidden field for Netlify -->
+          <input type="hidden" name="form-name" value="contact">
+
+          <!-- Honeypot field (spam protection) -->
+          <p class="contact-form__honeypot">
+            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+          </p>
+
+          <!-- Name -->
+          <div class="contact-form__group">
+            <label for="name" class="contact-form__label">
+              <span data-lang-en="Your Name" data-lang-th="ชื่อของคุณ"></span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="contact-form__input"
+              required
+              autocomplete="name"
+            >
+          </div>
+
+          <!-- Email -->
+          <div class="contact-form__group">
+            <label for="email" class="contact-form__label">
+              <span data-lang-en="Your Email" data-lang-th="อีเมลของคุณ"></span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="contact-form__input"
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <!-- Message -->
+          <div class="contact-form__group">
+            <label for="message" class="contact-form__label">
+              <span data-lang-en="Your Message" data-lang-th="ข้อความของคุณ"></span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              class="contact-form__textarea"
+              required
+              rows="5"
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="contact-form__submit">
+            <span data-lang-en="Send Message" data-lang-th="ส่งข้อความ"></span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CTA Section - See You Soon! -->
+    <section class="cta-section-new" aria-labelledby="cta-contact-title">
+      <div class="cta-container">
+        <span class="cta-emoji" aria-hidden="true">👋</span>
+        <h2 id="cta-contact-title" class="cta-title">
+          <span data-lang-en="See You Soon!" data-lang-th="แล้วเจอกันนะ!"></span>
+        </h2>
+        <p class="cta-subtitle">
+          <span data-lang-en="Ready to roll the dice and have some fun?" data-lang-th="พร้อมที่จะทอยลูกเต๋าและสนุกกันไหม?"></span>
+        </p>
+
+        <div class="cta-buttons">
+          <a href="games.html" class="cta-btn cta-btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
+            <span data-lang-en="Browse Games" data-lang-th="ดูเกมทั้งหมด"></span>
+          </a>
+          <a href="cafe.html" class="cta-btn cta-btn--secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611l-.628.105a9.065 9.065 0 01-7.014 0l-.628-.105c-1.717-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+            <span data-lang-en="View Menu" data-lang-th="ดูเมนู"></span>
+          </a>
+        </div>
+
+        <div class="cta-info">
+          <a href="https://instagram.com/tboardgamescafe" class="cta-chip cta-chip--social" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://facebook.com/tboardgamescafe" class="cta-chip cta-chip--social" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating CTA - Mobile Only -->
+  <div class="contact-floating-cta" x-data="{ visible: false }" x-init="
+    const hero = document.querySelector('.contact-hero');
+    const observer = new IntersectionObserver((entries) => {
+      visible = !entries[0].isIntersecting;
+    }, { threshold: 0 });
+    observer.observe(hero);
+  " :class="{ 'visible': visible }">
+    <a href="https://wa.me/66XXXXXXXXX" class="contact-floating-cta__btn contact-floating-cta__btn--whatsapp" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://maps.app.goo.gl/TBoardGamesCafe" class="contact-floating-cta__btn contact-floating-cta__btn--directions" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+      </svg>
+      <span data-lang-en="Directions" data-lang-th="เส้นทาง"></span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container container">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <img src="images/logo.svg" alt="T Board Games & Cafe">
+        </a>
+        <p class="footer__tagline">
+          <span data-lang-en="Enjoy Your Game" data-lang-th="เพลิดเพลินกับเกมของคุณ"></span>
+        </p>
+        <p class="footer__description">
+          <span data-lang-en="Your favorite board game cafe in Chiang Mai." data-lang-th="คาเฟ่บอร์ดเกมโปรดของคุณในเชียงใหม่"></span>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Quick Links" data-lang-th="ลิงก์ด่วน"></span>
+        </h3>
+        <ul class="footer__nav">
+          <li class="footer__nav-item">
+            <a href="index.html" class="footer__nav-link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="cafe.html" class="footer__nav-link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="games.html" class="footer__nav-link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="gallery.html" class="footer__nav-link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Visit Us -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Visit Us" data-lang-th="เยี่ยมชมเรา"></span>
+        </h3>
+        <ul class="footer__nav">
+          <li class="footer__nav-item">
+            <a href="contact.html" class="footer__nav-link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="contact.html#map" class="footer__nav-link">
+              <span data-lang-en="Directions" data-lang-th="เส้นทาง"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Contact Us" data-lang-th="ติดต่อเรา"></span>
+        </h3>
+        <ul class="footer__contact-list">
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+            <span data-lang-en="Tanadon Road, Chiang Mai, Thailand" data-lang-th="ถนนตนาดล เชียงใหม่ ประเทศไทย"></span>
+          </li>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span data-lang-en="Open Daily: 1:00 PM - 12:00 AM" data-lang-th="เปิดทุกวัน: 13:00 - 00:00"></span>
+          </li>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+            <a href="mailto:hello@tboardgames.com" class="footer__contact-link">hello@tboardgames.com</a>
+          </li>
+        </ul>
+
+        <!-- Social Links -->
+        <div class="footer__social">
+          <ul class="footer__social-list">
+            <li>
+              <a href="https://instagram.com/tboardgamescafe" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com/tboardgamescafe" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@tboardgamescafe" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer__bottom container">
+      <p class="footer__copyright">
+        <span data-lang-en="2025 T Board Games & Cafe. All rights reserved." data-lang-th="2025 T Board Games & Cafe สงวนลิขสิทธิ์"></span>
+      </p>
+      <p class="footer__made-with">
+        <span data-lang-en="Made with" data-lang-th="สร้างด้วย"></span> <span>&#10084;</span> <span data-lang-en="in Chiang Mai" data-lang-th="ในเชียงใหม่"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Animations -->
+  <script type="module" src="js/animations.js"></script>
+</body>
+</html>

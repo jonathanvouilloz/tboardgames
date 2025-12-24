@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <rect fill="#DCEDC8" width="1600" height="1200"/>
+  <rect fill="#AED581" x="0" y="700" width="1600" height="500"/>
+  <rect fill="#8BC34A" x="500" y="300" width="600" height="500" rx="20"/>
+  <rect fill="#689F38" x="550" y="400" width="200" height="300" rx="10"/>
+  <rect fill="#689F38" x="850" y="400" width="200" height="300" rx="10"/>
+  <rect fill="#7CB342" x="600" y="250" width="400" height="60" rx="10"/>
+  <polygon fill="#558B2F" points="700,200 800,100 900,200"/>
+  <circle fill="#FFEB3B" cx="1300" cy="200" r="100"/>
+  <circle fill="#FFF59D" cx="1300" cy="200" r="70"/>
+  <rect fill="#33691E" x="100" y="800" width="80" height="200"/>
+  <circle fill="#4CAF50" cx="140" cy="750" r="80"/>
+  <rect fill="#33691E" x="1400" y="850" width="80" height="150"/>
+  <circle fill="#4CAF50" cx="1440" cy="800" r="70"/>
+  <rect fill="#5D4037" x="300" y="900" width="200" height="100" rx="5"/>
+  <rect fill="#5D4037" x="1100" y="900" width="200" height="100" rx="5"/>
+  <text x="800" y="1100" font-family="Arial, sans-serif" font-size="48" fill="#33691E" text-anchor="middle" opacity="0.8">Exterior View</text>
+</svg>

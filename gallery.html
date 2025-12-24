@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse photos from T Board Games & Cafe. See our cozy atmosphere, game collection, and community events in Chiang Mai.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Gallery - T Board Games & Cafe">
+  <meta property="og:description" content="Browse photos from T Board Games & Cafe. See our cozy atmosphere and game collection.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tboardgames.com/gallery">
+  <meta property="og:image" content="images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
+
+  <!-- Google Fonts: Fredoka (headings) + Poppins (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- PhotoSwipe CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css">
+
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/mobile-menu.css">
+  <link rel="stylesheet" href="css/homepage.css">
+  <link rel="stylesheet" href="css/gallery.css">
+
+  <!-- JavaScript (must load before Alpine.js to register stores) -->
+  <script src="js/nav.js" type="module"></script>
+  <script src="js/lang.js" type="module"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <title>Gallery - T Board Games & Cafe Chiang Mai</title>
+</head>
+<body>
+  <!-- Skip Link (Accessibility) -->
+  <a href="#main-content" class="skip-link">
+    <span data-lang-en="Skip to main content" data-lang-th="ข้ามไปยังเนื้อหาหลัก"></span>
+  </a>
+
+  <!-- Header -->
+  <header class="header" x-data>
+    <div class="header__container container">
+      <!-- Logo -->
+      <a href="index.html" class="header__logo" aria-label="T Board Games & Cafe - Home">
+        <img src="images/logo.svg" alt="T Board Games & Cafe">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="cafe.html" class="nav__link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="games.html" class="nav__link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="gallery.html" class="nav__link nav__link--active">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header__actions">
+        <!-- Language Toggle -->
+        <button
+          class="lang-toggle"
+          @click="$store.language.toggle()"
+          :aria-label="$store.language.current === 'en' ? 'Switch to Thai' : 'Switch to English'"
+        >
+          <span x-text="$store.language.current === 'en' ? 'TH' : 'EN'"></span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="menu-toggle"
+          :class="{ 'menu-toggle--open': $store.mobileMenu.isOpen }"
+          @click="$store.mobileMenu.toggle()"
+          aria-label="Toggle menu"
+          :aria-expanded="$store.mobileMenu.isOpen.toString()"
+        >
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" x-data :class="{ 'mobile-menu--open': $store.mobileMenu.isOpen }" @keydown.escape.window="$store.mobileMenu.close()">
+    <!-- Overlay -->
+    <div class="mobile-menu__overlay" @click="$store.mobileMenu.close()" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="mobile-menu__content">
+      <!-- Header -->
+      <div class="mobile-menu__header">
+        <a href="index.html" class="mobile-menu__logo">
+          <img src="images/logo.svg" alt="T Board Games & Cafe">
+        </a>
+        <button class="mobile-menu__close" @click="$store.mobileMenu.close()" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="index.html" class="mobile-menu__link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="cafe.html" class="mobile-menu__link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="games.html" class="mobile-menu__link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="gallery.html" class="mobile-menu__link mobile-menu__link--active">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="contact.html" class="mobile-menu__link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Footer -->
+      <div class="mobile-menu__footer">
+        <!-- Language Toggle -->
+        <div class="mobile-menu__lang">
+          <button
+            class="mobile-menu__lang-btn"
+            :class="{ 'mobile-menu__lang-btn--active': $store.language.isActive('en') }"
+            @click="$store.language.setLanguage('en')"
+          >
+            English
+          </button>
+          <button
+            class="mobile-menu__lang-btn"
+            :class="{ 'mobile-menu__lang-btn--active': $store.language.isActive('th') }"
+            @click="$store.language.setLanguage('th')"
+          >
+            ไทย
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="mobile-menu__social">
+          <a href="https://instagram.com/tboardgamescafe" class="mobile-menu__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com/tboardgamescafe" class="mobile-menu__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com/@tboardgamescafe" class="mobile-menu__social-link" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section - Opening the Scrapbook -->
+    <section class="gallery-hero" aria-labelledby="hero-title">
+      <div class="gallery-hero__content">
+        <span class="gallery-hero__icon" aria-hidden="true">📸</span>
+
+        <h1 id="hero-title" class="gallery-hero__title animate-slide stagger-1">
+          <span data-lang-en="Our " data-lang-th=""></span><span class="gallery-hero__title-accent" data-lang-en="Memories" data-lang-th="ความทรงจำ"></span><span data-lang-en="" data-lang-th="ของเรา"></span>
+        </h1>
+
+        <p class="gallery-hero__subtitle animate-slide stagger-2">
+          <span
+            data-lang-en="Peek inside our cozy game table moments"
+            data-lang-th="แอบดูช่วงเวลาอบอุ่นบนโต๊ะเกมของเรา"
+          ></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Scrapbook Gallery Section -->
+    <section class="scrapbook-section" id="gallery-section" aria-labelledby="gallery-title">
+      <div class="scrapbook-intro animate-fade">
+        <p class="scrapbook-intro__text">
+          <span
+            data-lang-en="Every photo tells a story. Here are some of our favorites..."
+            data-lang-th="ทุกภาพเล่าเรื่องราว นี่คือภาพโปรดของเรา..."
+          ></span>
+        </p>
+      </div>
+
+      <!-- Polaroid Gallery Grid -->
+      <div class="polaroid-grid pswp-gallery" id="gallery-grid">
+
+        <!-- Polaroid 1: Cozy Vibes -->
+        <figure class="polaroid animate-scale stagger-1">
+          <a href="images/gallery/photo-1.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-1.svg"
+                   alt="Cozy cafe ambiance with warm lighting"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Cozy vibes" data-lang-th="บรรยากาศอบอุ่น"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 2: Game Tables Ready -->
+        <figure class="polaroid animate-scale stagger-2">
+          <a href="images/gallery/photo-2.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-2.svg"
+                   alt="Gaming tables setup for board game sessions"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Game tables ready" data-lang-th="โต๊ะเกมพร้อม"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 3: Pick Your Adventure -->
+        <figure class="polaroid animate-scale stagger-3">
+          <a href="images/gallery/photo-3.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-3.svg"
+                   alt="Shelves filled with board games"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Pick your adventure" data-lang-th="เลือกการผจญภัย"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 4: Making Memories -->
+        <figure class="polaroid animate-scale stagger-4">
+          <a href="images/gallery/photo-4.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-4.svg"
+                   alt="Group of friends enjoying a board game"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Making memories" data-lang-th="สร้างความทรงจำ"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 5: Coffee Break -->
+        <figure class="polaroid animate-scale stagger-5">
+          <a href="images/gallery/photo-5.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-5.svg"
+                   alt="Our coffee bar with fresh drinks"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Coffee break" data-lang-th="พักดื่มกาแฟ"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 6: Playful Details -->
+        <figure class="polaroid animate-scale stagger-6">
+          <a href="images/gallery/photo-6.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-6.svg"
+                   alt="Playful cafe decorations"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Playful details" data-lang-th="รายละเอียดสนุก"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 7: Game Night -->
+        <figure class="polaroid animate-scale stagger-1">
+          <a href="images/gallery/photo-7.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-7.svg"
+                   alt="Game night event with multiple tables"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Game night" data-lang-th="คืนเล่นเกม"></span>
+          </figcaption>
+        </figure>
+
+        <!-- Polaroid 8: Welcome! -->
+        <figure class="polaroid animate-scale stagger-2">
+          <a href="images/gallery/photo-8.svg"
+             class="polaroid__link"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             target="_blank">
+            <div class="polaroid__frame">
+              <img src="images/gallery/photo-8.svg"
+                   alt="Exterior view of T Board Games & Cafe"
+                   class="polaroid__image"
+                   loading="lazy">
+            </div>
+          </a>
+          <figcaption class="polaroid__caption">
+            <span class="polaroid__caption-text" data-lang-en="Welcome!" data-lang-th="ยินดีต้อนรับ!"></span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- CTA Section - Your Story Starts Here -->
+    <section class="cta-section-new" aria-labelledby="cta-title">
+      <div class="cta-container">
+        <span class="cta-emoji" aria-hidden="true">📸</span>
+        <h2 id="cta-title" class="cta-title">
+          <span data-lang-en="Your Story Starts Here" data-lang-th="เรื่องราวของคุณเริ่มต้นที่นี่"></span>
+        </h2>
+        <p class="cta-subtitle">
+          <span data-lang-en="Every photo is a memory. Come make yours!" data-lang-th="ทุกภาพคือความทรงจำ มาสร้างของคุณเอง!"></span>
+        </p>
+
+        <div class="cta-buttons">
+          <a href="contact.html" class="cta-btn cta-btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+            <span data-lang-en="Plan Your Visit" data-lang-th="วางแผนการมาเยี่ยม"></span>
+          </a>
+          <a href="games.html" class="cta-btn cta-btn--secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+            </svg>
+            <span data-lang-en="Explore Games" data-lang-th="สำรวจเกม"></span>
+          </a>
+        </div>
+
+        <div class="cta-info">
+          <span class="cta-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span data-lang-en="Open Daily" data-lang-th="เปิดทุกวัน"></span>
+          </span>
+          <span class="cta-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772"/>
+            </svg>
+            <span data-lang-en="All Welcome" data-lang-th="ยินดีต้อนรับทุกคน"></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container container">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <img src="images/logo.svg" alt="T Board Games & Cafe">
+        </a>
+        <p class="footer__tagline">
+          <span data-lang-en="Enjoy Your Game" data-lang-th="เพลิดเพลินกับเกมของคุณ"></span>
+        </p>
+        <p class="footer__description">
+          <span data-lang-en="Your favorite board game cafe in Chiang Mai." data-lang-th="คาเฟ่บอร์ดเกมโปรดของคุณในเชียงใหม่"></span>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Quick Links" data-lang-th="ลิงก์ด่วน"></span>
+        </h3>
+        <ul class="footer__nav">
+          <li class="footer__nav-item">
+            <a href="index.html" class="footer__nav-link">
+              <span data-lang-en="Home" data-lang-th="หน้าแรก"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="cafe.html" class="footer__nav-link">
+              <span data-lang-en="Cafe" data-lang-th="คาเฟ่"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="games.html" class="footer__nav-link">
+              <span data-lang-en="Games" data-lang-th="เกม"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="gallery.html" class="footer__nav-link">
+              <span data-lang-en="Gallery" data-lang-th="แกลเลอรี"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Visit Us -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Visit Us" data-lang-th="เยี่ยมชมเรา"></span>
+        </h3>
+        <ul class="footer__nav">
+          <li class="footer__nav-item">
+            <a href="contact.html" class="footer__nav-link">
+              <span data-lang-en="Contact" data-lang-th="ติดต่อ"></span>
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="contact.html#map" class="footer__nav-link">
+              <span data-lang-en="Directions" data-lang-th="เส้นทาง"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__section">
+        <h3 class="footer__heading">
+          <span data-lang-en="Contact Us" data-lang-th="ติดต่อเรา"></span>
+        </h3>
+        <ul class="footer__contact-list">
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+            <span data-lang-en="Tanadon Road, Chiang Mai, Thailand" data-lang-th="ถนนตนาดล เชียงใหม่ ประเทศไทย"></span>
+          </li>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span data-lang-en="Open Daily: 1:00 PM - 12:00 AM" data-lang-th="เปิดทุกวัน: 13:00 - 00:00"></span>
+          </li>
+          <li class="footer__contact-item">
+            <svg class="footer__contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+            <a href="mailto:hello@tboardgames.com" class="footer__contact-link">hello@tboardgames.com</a>
+          </li>
+        </ul>
+
+        <!-- Social Links -->
+        <div class="footer__social">
+          <ul class="footer__social-list">
+            <li>
+              <a href="https://instagram.com/tboardgamescafe" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com/tboardgamescafe" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@tboardgamescafe" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer__bottom container">
+      <p class="footer__copyright">
+        <span data-lang-en="2025 T Board Games & Cafe. All rights reserved." data-lang-th="2025 T Board Games & Cafe สงวนลิขสิทธิ์"></span>
+      </p>
+      <p class="footer__made-with">
+        <span data-lang-en="Made with" data-lang-th="สร้างด้วย"></span> <span>&#10084;</span> <span data-lang-en="in Chiang Mai" data-lang-th="ในเชียงใหม่"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- PhotoSwipe JavaScript -->
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery-grid',
+      children: '.polaroid__link',
+      pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+
+      // Keyboard Navigation
+      escKey: true,
+      arrowKeys: true,
+
+      // Zoom Control
+      initialZoomLevel: 'fit',
+      secondaryZoomLevel: 1.5,
+      maxZoomLevel: 3,
+
+      // Preloading
+      preload: [1, 2],
+      preloadFirstSlide: true,
+      preloaderDelay: 2000,
+
+      // Accessibility
+      trapFocus: true,
+      returnFocus: true,
+
+      // Touch/Gesture
+      allowPanToNext: true,
+      closeOnVerticalDrag: true,
+      pinchToClose: true
+    });
+
+    lightbox.init();
+  </script>
+
+  <!-- Animations -->
+  <script type="module" src="js/animations.js"></script>
+</body>
+</html>

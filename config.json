@@ -1,0 +1,365 @@
+{
+  "site": {
+    "name": {
+      "en": "T Board Games & Cafe",
+      "th": "ที บอร์ดเกม แอนด์ คาเฟ่"
+    },
+    "tagline": {
+      "en": "Enjoy Your Game",
+      "th": "เพลิดเพลินกับเกมของคุณ"
+    },
+    "description": {
+      "en": "Your favorite board game cafe in Chiang Mai. Over 100 games, great coffee, and a welcoming atmosphere for all players.",
+      "th": "คาเฟ่บอร์ดเกมโปรดของคุณในเชียงใหม่ มีเกมมากกว่า 100 เกม กาแฟอร่อย และบรรยากาศที่เป็นกันเองสำหรับผู้เล่นทุกคน"
+    },
+    "url": "https://tboardgames.com",
+    "logo": "images/logo.svg"
+  },
+
+  "branding": {
+    "colors": {
+      "primary": "#A8D973",
+      "secondary": "#FFB3D9",
+      "accent": "#FFE66D",
+      "cream": "#F5E6D3",
+      "dark": "#2D3436"
+    },
+    "fonts": {
+      "heading": "Fredoka",
+      "body": "Poppins"
+    }
+  },
+
+  "navigation": {
+    "items": [
+      {
+        "label": { "en": "Home", "th": "หน้าแรก" },
+        "href": "index.html"
+      },
+      {
+        "label": { "en": "Cafe", "th": "คาเฟ่" },
+        "href": "cafe.html"
+      },
+      {
+        "label": { "en": "Games", "th": "เกม" },
+        "href": "games.html"
+      },
+      {
+        "label": { "en": "Gallery", "th": "แกลเลอรี" },
+        "href": "gallery.html"
+      },
+      {
+        "label": { "en": "Contact", "th": "ติดต่อ" },
+        "href": "contact.html"
+      }
+    ]
+  },
+
+  "homepage": {
+    "featuredGame": {
+      "id": "catan",
+      "name": "Catan",
+      "image": "images/games/catan.webp",
+      "badge": { "en": "Featured", "th": "แนะนำ" },
+      "description": {
+        "en": "The classic strategy game of trading and building",
+        "th": "เกมกลยุทธ์คลาสสิกเกี่ยวกับการค้าและการสร้าง"
+      },
+      "cta": { "en": "Play Now", "th": "เล่นเลย" }
+    },
+    "hero": {
+      "image": "images/hero/homepage.jpg",
+      "title": {
+        "en": "Your Board Game Haven in Chiang Mai",
+        "th": "สวรรค์บอร์ดเกมของคุณในเชียงใหม่"
+      },
+      "subtitle": {
+        "en": "100+ games | Cozy atmosphere | Open daily 1PM-12AM",
+        "th": "เกมมากกว่า 100 เกม | บรรยากาศสบาย | เปิดทุกวัน 13:00-00:00"
+      },
+      "cta": {
+        "text": { "en": "Explore Games", "th": "สำรวจเกม" },
+        "link": "games.html"
+      }
+    },
+    "about": {
+      "title": {
+        "en": "About Us",
+        "th": "เกี่ยวกับเรา"
+      },
+      "text": {
+        "en": "T Board Games & Cafe is Chiang Mai's premier destination for board game enthusiasts. Whether you're a seasoned strategist or just discovering the joy of tabletop gaming, we offer a welcoming space with an extensive library, delicious beverages, and a vibrant community.",
+        "th": "T Board Games & Cafe เป็นจุดหมายปลายทางชั้นนำของเชียงใหม่สำหรับผู้ชื่นชอบบอร์ดเกม ไม่ว่าคุณจะเป็นนักกลยุทธ์ที่มากประสบการณ์หรือเพิ่งค้นพบความสนุกของการเล่นเกมบนโต๊ะ เรามีพื้นที่ต้อนรับพร้อมห้องสมุดที่กว้างขวาง เครื่องดื่มอร่อย และชุมชนที่มีชีวิตชีวา"
+      }
+    },
+    "features": [
+      {
+        "icon": "dice",
+        "title": { "en": "100+ Games", "th": "เกมมากกว่า 100 เกม" },
+        "description": {
+          "en": "From classic favorites to modern hits",
+          "th": "ตั้งแต่เกมคลาสสิกไปจนถึงเกมยอดนิยมสมัยใหม่"
+        }
+      },
+      {
+        "icon": "coffee",
+        "title": { "en": "Great Coffee & Snacks", "th": "กาแฟและของว่างอร่อย" },
+        "description": {
+          "en": "Fuel your game nights with quality drinks",
+          "th": "เติมพลังให้คืนเกมของคุณด้วยเครื่องดื่มคุณภาพ"
+        }
+      },
+      {
+        "icon": "users",
+        "title": { "en": "Welcoming Community", "th": "ชุมชนที่เป็นกันเอง" },
+        "description": {
+          "en": "Meet fellow players and make new friends",
+          "th": "พบปะผู้เล่นคนอื่นๆ และสร้างเพื่อนใหม่"
+        }
+      },
+      {
+        "icon": "calendar",
+        "title": { "en": "Regular Events", "th": "กิจกรรมประจำ" },
+        "description": {
+          "en": "Tournaments, game nights, and special sessions",
+          "th": "ทัวร์นาเมนต์ คืนเกม และเซสชั่นพิเศษ"
+        }
+      }
+    ],
+    "socialFeed": {
+      "instagram": "@tboardgamescafe",
+      "tiktok": "@tboardgamescafe"
+    }
+  },
+
+  "cafe": {
+    "hero": {
+      "image": "images/hero/cafe.jpg",
+      "title": {
+        "en": "Coffee, Snacks & Good Times",
+        "th": "กาแฟ ของว่าง และเวลาดีๆ"
+      }
+    },
+    "description": {
+      "en": "Our cafe offers a carefully curated selection of beverages and snacks to keep you energized during your gaming sessions. From specialty coffee to refreshing drinks and tasty treats, we've got everything you need for the perfect game day.",
+      "th": "คาเฟ่ของเรานำเสนอเครื่องดื่มและของว่างที่คัดสรรมาอย่างดีเพื่อให้คุณมีพลังงานระหว่างการเล่นเกม ตั้งแต่กาแฟพิเศษไปจนถึงเครื่องดื่มสดชื่นและของว่างอร่อย เรามีทุกสิ่งที่คุณต้องการสำหรับวันเล่นเกมที่สุดยอด"
+    },
+    "menu": [
+      {
+        "category": { "en": "Hot Drinks", "th": "เครื่องดื่มร้อน" },
+        "items": [
+          { "name": { "en": "Espresso", "th": "เอสเพรสโซ" }, "price": "50" },
+          { "name": { "en": "Americano", "th": "อเมริกาโน" }, "price": "60" },
+          { "name": { "en": "Cappuccino", "th": "คาปูชิโน่" }, "price": "70" },
+          { "name": { "en": "Latte", "th": "ลาเต้" }, "price": "70" },
+          { "name": { "en": "Mocha", "th": "มอคค่า" }, "price": "80" },
+          { "name": { "en": "Thai Tea", "th": "ชาไทย" }, "price": "60" }
+        ]
+      },
+      {
+        "category": { "en": "Cold Drinks", "th": "เครื่องดื่มเย็น" },
+        "items": [
+          { "name": { "en": "Iced Americano", "th": "อเมริกาโนเย็น" }, "price": "65" },
+          { "name": { "en": "Iced Latte", "th": "ลาเต้เย็น" }, "price": "75" },
+          { "name": { "en": "Iced Mocha", "th": "มอคค่าเย็น" }, "price": "85" },
+          { "name": { "en": "Smoothie", "th": "สมูทตี้" }, "price": "90" },
+          { "name": { "en": "Fresh Juice", "th": "น้ำผลไม้สด" }, "price": "70" }
+        ]
+      },
+      {
+        "category": { "en": "Snacks", "th": "ของว่าง" },
+        "items": [
+          { "name": { "en": "Cookies", "th": "คุกกี้" }, "price": "40" },
+          { "name": { "en": "Brownies", "th": "บราวนี่" }, "price": "50" },
+          { "name": { "en": "Sandwich", "th": "แซนด์วิช" }, "price": "80" },
+          { "name": { "en": "Chips", "th": "มันฝรั่งทอด" }, "price": "45" }
+        ]
+      }
+    ],
+    "hours": {
+      "daily": {
+        "en": "Open Daily: 1:00 PM - 12:00 AM",
+        "th": "เปิดทุกวัน: 13:00 - 00:00"
+      }
+    },
+    "pricing": {
+      "title": {
+        "en": "Game Library Access",
+        "th": "การเข้าถึงห้องสมุดเกม"
+      },
+      "description": {
+        "en": "Free access to our entire game library with any purchase from our cafe menu.",
+        "th": "เข้าถึงห้องสมุดเกมทั้งหมดของเราได้ฟรีเมื่อซื้อสินค้าใดๆ จากเมนูคาเฟ่"
+      }
+    }
+  },
+
+  "games": {
+    "hero": {
+      "image": "images/hero/games.jpg",
+      "title": {
+        "en": "100+ Games to Play",
+        "th": "เกมมากกว่า 100 เกมให้เล่น"
+      },
+      "subtitle": {
+        "en": "From strategy classics to party favorites",
+        "th": "ตั้งแต่เกมกลยุทธ์คลาสสิกไปจนถึงเกมปาร์ตี้โปรด"
+      }
+    },
+    "intro": {
+      "en": "Explore our extensive collection of board games, carefully selected to offer something for everyone. Whether you're into deep strategy, cooperative adventures, or quick party games, we've got you covered.",
+      "th": "สำรวจคอลเลกชั่นบอร์ดเกมที่กว้างขวางของเรา คัดสรรมาอย่างดีเพื่อเสนอสิ่งที่เหมาะกับทุกคน ไม่ว่าคุณจะชอบเกมกลยุทธ์ลึกซึ้ง เกมผจญภัยร่วมมือ หรือเกมปาร์ตี้แบบรวดเร็ว เรามีครบทุกอย่าง"
+    },
+    "collection": [
+      {
+        "name": "Catan",
+        "image": "images/games/catan.jpg",
+        "players": "3-4",
+        "duration": "60-90 min",
+        "difficulty": { "en": "Medium", "th": "ปานกลาง" },
+        "description": {
+          "en": "Classic resource management and trading game",
+          "th": "เกมการจัดการทรัพยากรและการซื้อขายคลาสสิก"
+        }
+      },
+      {
+        "name": "Ticket to Ride",
+        "image": "images/games/ticket-to-ride.jpg",
+        "players": "2-5",
+        "duration": "30-60 min",
+        "difficulty": { "en": "Easy", "th": "ง่าย" },
+        "description": {
+          "en": "Build railway routes across the country",
+          "th": "สร้างเส้นทางรถไฟทั่วประเทศ"
+        }
+      },
+      {
+        "name": "Codenames",
+        "image": "images/games/codenames.jpg",
+        "players": "4-8",
+        "duration": "15-30 min",
+        "difficulty": { "en": "Easy", "th": "ง่าย" },
+        "description": {
+          "en": "Word-based party game of deduction",
+          "th": "เกมปาร์ตี้แบบใช้คำศัพท์และการสืบสวน"
+        }
+      },
+      {
+        "name": "Azul",
+        "image": "images/games/azul.jpg",
+        "players": "2-4",
+        "duration": "30-45 min",
+        "difficulty": { "en": "Medium", "th": "ปานกลาง" },
+        "description": {
+          "en": "Beautiful tile-laying puzzle game",
+          "th": "เกมปริศนาวางกระเบื้องที่สวยงาม"
+        }
+      },
+      {
+        "name": "Splendor",
+        "image": "images/games/splendor.jpg",
+        "players": "2-4",
+        "duration": "30 min",
+        "difficulty": { "en": "Easy", "th": "ง่าย" },
+        "description": {
+          "en": "Gem trading and card development",
+          "th": "การซื้อขายอัญมณีและการพัฒนาการ์ด"
+        }
+      },
+      {
+        "name": "7 Wonders",
+        "image": "images/games/7-wonders.jpg",
+        "players": "3-7",
+        "duration": "30 min",
+        "difficulty": { "en": "Medium", "th": "ปานกลาง" },
+        "description": {
+          "en": "Build the greatest civilization",
+          "th": "สร้างอารยธรรมที่ยิ่งใหญ่ที่สุด"
+        }
+      }
+    ],
+    "callout": {
+      "text": {
+        "en": "Don't see your favorite game? We're always expanding our collection. Let us know what you'd like to play!",
+        "th": "ไม่เห็นเกมโปรดของคุณ? เรากำลังขยายคอลเลกชั่นของเราอยู่เสมอ บอกเราหน่อยว่าคุณอยากเล่นเกมอะไร!"
+      }
+    }
+  },
+
+  "events": {
+    "source": "manual",
+    "googleCalendarId": "",
+    "title": {
+      "en": "Upcoming Events",
+      "th": "กิจกรรมที่กำลังจะมาถึง"
+    },
+    "items": [
+      {
+        "title": { "en": "Friday Game Night", "th": "คืนเกมวันศุกร์" },
+        "date": "2025-12-26",
+        "time": "19:00",
+        "description": {
+          "en": "Join us for a casual game night every Friday. Bring your friends or make new ones!",
+          "th": "มาร่วมกับเราในคืนเกมแบบสบายๆ ทุกวันศุกร์ พาเพื่อนมาหรือสร้างเพื่อนใหม่!"
+        }
+      },
+      {
+        "title": { "en": "Catan Tournament", "th": "ทัวร์นาเมนต์ Catan" },
+        "date": "2026-01-05",
+        "time": "14:00",
+        "description": {
+          "en": "Monthly Catan tournament. Sign up at the cafe. Prize for the winner!",
+          "th": "ทัวร์นาเมนต์ Catan รายเดือน ลงทะเบียนที่คาเฟ่ มีรางวัลสำหรับผู้ชนะ!"
+        }
+      },
+      {
+        "title": { "en": "New Year Game Marathon", "th": "มาราธอนเกมปีใหม่" },
+        "date": "2026-01-01",
+        "time": "13:00",
+        "description": {
+          "en": "Ring in the new year with 12 hours of non-stop gaming! Special menu and prizes.",
+          "th": "เฉลิมฉลองปีใหม่ด้วยการเล่นเกม 12 ชั่วโมงไม่หยุด! เมนูพิเศษและของรางวัล"
+        }
+      }
+    ]
+  },
+
+  "contact": {
+    "address": {
+      "street": { "en": "Tanadon Road", "th": "ถนนตนาดล" },
+      "city": { "en": "Chiang Mai", "th": "เชียงใหม่" },
+      "country": { "en": "Thailand", "th": "ประเทศไทย" },
+      "full": {
+        "en": "Tanadon Road, Chiang Mai, Thailand",
+        "th": "ถนนตนาดล เชียงใหม่ ประเทศไทย"
+      }
+    },
+    "phone": "+66 XX XXX XXXX",
+    "whatsapp": "+66XXXXXXXXX",
+    "email": "hello@tboardgames.com",
+    "hours": {
+      "daily": {
+        "en": "Open Daily: 1:00 PM - 12:00 AM",
+        "th": "เปิดทุกวัน: 13:00 - 00:00"
+      }
+    },
+    "googleMapsEmbed": "https://www.google.com/maps/embed?pb=...",
+    "googleMapsLink": "https://maps.app.goo.gl/...",
+    "social": {
+      "instagram": "https://instagram.com/tboardgamescafe",
+      "tiktok": "https://tiktok.com/@tboardgamescafe",
+      "facebook": "https://facebook.com/tboardgamescafe"
+    }
+  },
+
+  "footer": {
+    "copyright": {
+      "en": "2025 T Board Games & Cafe. All rights reserved.",
+      "th": "2025 T Board Games & Cafe สงวนลิขสิทธิ์"
+    },
+    "madeWith": {
+      "en": "Made with love in Chiang Mai",
+      "th": "สร้างด้วยความรักในเชียงใหม่"
+    }
+  }
+}

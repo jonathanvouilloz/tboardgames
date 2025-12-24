@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect fill="#F5E6D3" width="800" height="600"/>
+  <rect fill="#A8D973" x="200" y="150" width="400" height="300" rx="20"/>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="24" fill="#2D3436" text-anchor="middle" dominant-baseline="middle">Gaming Tables</text>
+</svg>

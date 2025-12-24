@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <rect fill="#A8D973" width="1600" height="1200"/>
+  <rect fill="#8BC34A" x="100" y="100" width="400" height="300" rx="20"/>
+  <rect fill="#8BC34A" x="550" y="150" width="500" height="250" rx="20"/>
+  <rect fill="#8BC34A" x="1100" y="100" width="400" height="300" rx="20"/>
+  <circle fill="#fff" opacity="0.3" cx="800" cy="600" r="150"/>
+  <path fill="#fff" opacity="0.5" d="M750 550h100v100H750z"/>
+  <circle fill="#689F38" cx="300" cy="800" r="80"/>
+  <circle fill="#689F38" cx="600" cy="900" r="60"/>
+  <circle fill="#689F38" cx="1000" cy="850" r="100"/>
+  <circle fill="#689F38" cx="1300" cy="950" r="70"/>
+  <text x="800" y="620" font-family="Arial, sans-serif" font-size="48" fill="#fff" text-anchor="middle" opacity="0.8">Cafe Ambiance</text>
+</svg>

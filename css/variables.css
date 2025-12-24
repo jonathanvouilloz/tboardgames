@@ -1,0 +1,266 @@
+/**
+ * T Board Games & Cafe - Design System
+ * Toutes les variables CSS centralisées
+ * Modifier ici pour changer le thème sur tout le site
+ */
+
+:root {
+  /* ============================================
+     COLORS - Palette principale
+     ============================================ */
+
+  /* Primary - Lime/Kiwi Green (du logo) */
+  --lime-400: #B8E38A;
+  --lime-500: #A8D973;        /* Couleur principale */
+  --lime-600: #8FC45C;
+  --lime-700: #73A644;
+
+  /* Secondary - Rose Pastel (moutons) */
+  --pink-200: #FFD4E8;
+  --pink-300: #FFB3D9;        /* Couleur secondaire */
+  --pink-400: #FF99CC;
+
+  /* Neutral - Crème & Grays */
+  --cream-100: #F5E6D3;       /* Background chaleureux */
+  --cream-200: #EDD9C0;
+  --white: #FFFFFF;
+  --dark-700: #636E72;        /* Texte secondaire */
+  --dark-800: #2D3436;        /* Texte secondaire foncé */
+  --dark-900: #1A1D1F;        /* Texte principal */
+
+  /* Accent - Couleurs ludiques */
+  --yellow-400: #FFE66D;      /* Highlights playful */
+  --blue-300: #A8E6CF;        /* Touches fraîches */
+  --orange-400: #FFB347;      /* Warm accents */
+
+  /* Semantic Colors */
+  --success: #51CF66;
+  --warning: #FFB347;
+  --error: #FF6B6B;
+  --info: #4DABF7;
+
+
+  /* ============================================
+     TYPOGRAPHY - Fonts & Sizes
+     ============================================ */
+
+  /* Font Families */
+  --font-heading: 'Fredoka', 'Poppins', sans-serif;  /* Playful, rounded */
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Font Sizes - Scale harmonique */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+
+  /* ============================================
+     SPACING - Scale 4px baseline
+     ============================================ */
+
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 0.125rem;   /* 2px */
+  --space-1: 0.25rem;      /* 4px */
+  --space-2: 0.5rem;       /* 8px */
+  --space-3: 0.75rem;      /* 12px */
+  --space-4: 1rem;         /* 16px */
+  --space-5: 1.25rem;      /* 20px */
+  --space-6: 1.5rem;       /* 24px */
+  --space-7: 1.75rem;      /* 28px */
+  --space-8: 2rem;         /* 32px */
+  --space-10: 2.5rem;      /* 40px */
+  --space-12: 3rem;        /* 48px */
+  --space-16: 4rem;        /* 64px */
+  --space-20: 5rem;        /* 80px */
+  --space-24: 6rem;        /* 96px */
+  --space-32: 8rem;        /* 128px */
+  --space-40: 10rem;       /* 160px */
+  --space-48: 12rem;       /* 192px */
+
+
+  /* ============================================
+     BORDERS & RADIUS
+     ============================================ */
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.5rem;     /* 8px - Buttons, small cards */
+  --radius-md: 1rem;       /* 16px - Cards */
+  --radius-lg: 1.5rem;     /* 24px - Large cards */
+  --radius-xl: 2rem;       /* 32px - Hero elements */
+  --radius-2xl: 2.5rem;    /* 40px */
+  --radius-3xl: 3rem;      /* 48px */
+  --radius-full: 9999px;   /* Pills, rounded buttons */
+
+  /* Border Widths */
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-4: 4px;
+  --border-8: 8px;
+
+
+  /* ============================================
+     SHADOWS - Elevation system
+     ============================================ */
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.20);
+  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.24);
+
+  /* Colored Shadows (for hover effects) */
+  --shadow-lime: 0 12px 40px rgba(168, 217, 115, 0.3);
+  --shadow-pink: 0 12px 40px rgba(255, 179, 217, 0.3);
+  --shadow-yellow: 0 12px 40px rgba(255, 230, 109, 0.3);
+
+  /* Inner Shadows */
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+
+  /* ============================================
+     GRADIENTS
+     ============================================ */
+
+  --gradient-hero: linear-gradient(135deg, var(--lime-400) 0%, var(--lime-600) 100%);
+  --gradient-soft: linear-gradient(180deg, var(--cream-100) 0%, var(--white) 100%);
+  --gradient-playful: linear-gradient(90deg, var(--pink-200) 0%, var(--yellow-400) 50%, var(--lime-400) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--dark-800) 0%, var(--dark-900) 100%);
+  --gradient-overlay: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+
+
+  /* ============================================
+     TRANSITIONS & ANIMATIONS
+     ============================================ */
+
+  /* Durations */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-medium: 300ms;
+  --duration-slow: 500ms;
+
+  /* Timing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);       /* Transition douce */
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);  /* Effet rebond */
+  --ease-gentle: cubic-bezier(0.33, 1, 0.68, 1);     /* Déceleration douce */
+
+
+  /* ============================================
+     LAYOUT - Containers & Breakpoints
+     ============================================ */
+
+  /* Container Max Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* Breakpoints (pour référence dans JS) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+
+  /* ============================================
+     Z-INDEX - Layering system
+     ============================================ */
+
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-toast: 60;
+  --z-tooltip: 70;
+
+
+  /* ============================================
+     MISC - Autres valeurs utiles
+     ============================================ */
+
+  /* Opacity Levels */
+  --opacity-0: 0;
+  --opacity-10: 0.1;
+  --opacity-20: 0.2;
+  --opacity-30: 0.3;
+  --opacity-40: 0.4;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --opacity-100: 1;
+
+  /* Blur */
+  --blur-sm: 4px;
+  --blur-md: 8px;
+  --blur-lg: 16px;
+  --blur-xl: 24px;
+
+  /* Max Widths (pour texte lisible) */
+  --prose-width: 65ch;
+  --content-width: 70ch;
+}
+
+
+/* ============================================
+   DARK MODE (optionnel pour le futur)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Inverser les couleurs si besoin */
+    /* --background: var(--dark-900); */
+    /* --text-primary: var(--white); */
+  }
+}
+
+
+/* ============================================
+   UTILITY: Apply theme from config.json
+   Cette classe peut être appliquée dynamiquement
+   ============================================ */
+
+:root[data-theme-override] {
+  /* JavaScript peut override ces variables depuis config.json */
+  /* Exemple: document.documentElement.style.setProperty('--lime-500', config.branding.colors.primary); */
+}

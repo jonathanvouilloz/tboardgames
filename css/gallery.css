@@ -1,0 +1,414 @@
+/* ==========================================================================
+   Gallery Page - "Game Table Scrapbook" Design
+   A nostalgic photo album scattered on a cozy game table
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero Section - Opening the Scrapbook
+   ========================================================================== */
+
+.gallery-hero {
+  position: relative;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--cream-100);
+  overflow: hidden;
+}
+
+.gallery-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-8) var(--space-6);
+  max-width: 600px;
+}
+
+.gallery-hero__icon {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-4);
+  display: inline-block;
+  animation: bounce-gentle 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.gallery-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: var(--weight-bold);
+  color: var(--dark-900);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.gallery-hero__title-accent {
+  color: var(--lime-600);
+  position: relative;
+  display: inline-block;
+}
+
+/* Squiggly underline on accent */
+.gallery-hero__title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4' stroke='%238FC45C' stroke-width='2' fill='none'/%3E%3C/svg%3E") repeat-x;
+  background-size: 50px 8px;
+}
+
+.gallery-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--dark-700);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* ==========================================================================
+   Gallery Section - The Scattered Photos
+   ========================================================================== */
+
+.scrapbook-section {
+  background: var(--cream-100);
+  padding: var(--space-6) 0 var(--space-16);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrapbook-intro {
+  text-align: center;
+  max-width: 550px;
+  margin: 0 auto var(--space-10);
+  padding: 0 var(--space-4);
+}
+
+.scrapbook-intro__text {
+  font-size: var(--text-base);
+  color: var(--dark-700);
+  line-height: var(--leading-relaxed);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Polaroid Grid - The Heart of the Scrapbook
+   ========================================================================== */
+
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  padding: 0 var(--space-6);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .polaroid-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    padding: 0 var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .polaroid-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .polaroid-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Polaroid Card - Individual Photo Component
+   ========================================================================== */
+
+.polaroid {
+  position: relative;
+  background: var(--white);
+  padding: var(--space-3);
+  padding-bottom: var(--space-10);
+  border-radius: 4px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow 0.3s var(--ease-smooth),
+    z-index 0s 0.4s;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* Random rotations for organic scattered look */
+.polaroid:nth-child(8n+1) { transform: rotate(-3.5deg); }
+.polaroid:nth-child(8n+2) { transform: rotate(2.8deg); }
+.polaroid:nth-child(8n+3) { transform: rotate(-1.5deg); }
+.polaroid:nth-child(8n+4) { transform: rotate(4deg); }
+.polaroid:nth-child(8n+5) { transform: rotate(-2deg); }
+.polaroid:nth-child(8n+6) { transform: rotate(3deg); }
+.polaroid:nth-child(8n+7) { transform: rotate(-4deg); }
+.polaroid:nth-child(8n+8) { transform: rotate(1.5deg); }
+
+/* Hover/Focus: Straighten, lift, and glow */
+.polaroid:hover,
+.polaroid:focus-within {
+  transform: rotate(0deg) scale(1.05) translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    var(--shadow-lime);
+  z-index: 10;
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow 0.3s var(--ease-smooth),
+    z-index 0s;
+}
+
+/* Tape decoration on some polaroids */
+.polaroid:nth-child(3n+1)::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 230, 109, 0.65);
+  border-radius: 2px;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Pin decoration on other polaroids */
+.polaroid:nth-child(3n+2)::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 40% 40%, var(--lime-400), var(--lime-600));
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.polaroid__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.polaroid__link:focus {
+  outline: none;
+}
+
+.polaroid__link:focus-visible {
+  outline: 3px solid var(--lime-500);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.polaroid__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--cream-100);
+}
+
+.polaroid__image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease-smooth);
+  filter: saturate(0.95) contrast(1.02);
+}
+
+@media (min-width: 640px) {
+  .polaroid__image {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .polaroid__image {
+    height: 220px;
+  }
+}
+
+.polaroid:hover .polaroid__image {
+  transform: scale(1.08);
+}
+
+/* Caption area - handwritten feel */
+.polaroid__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  text-align: center;
+}
+
+.polaroid__caption-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--dark-800);
+  line-height: var(--leading-snug);
+  letter-spacing: 0.01em;
+}
+
+/* Date stamp on some photos */
+.polaroid:nth-child(4n)::after {
+  content: '2024';
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--dark-700);
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Animation Classes for Scroll Reveal
+   ========================================================================== */
+
+.polaroid.animate-scale {
+  opacity: 0;
+  transform: scale(0.9) rotate(0deg);
+}
+
+.polaroid.animate-scale.animate-in {
+  opacity: 1;
+}
+
+/* Restore rotation after animation */
+.polaroid.animate-in:nth-child(8n+1) { transform: scale(1) rotate(-3.5deg); }
+.polaroid.animate-in:nth-child(8n+2) { transform: scale(1) rotate(2.8deg); }
+.polaroid.animate-in:nth-child(8n+3) { transform: scale(1) rotate(-1.5deg); }
+.polaroid.animate-in:nth-child(8n+4) { transform: scale(1) rotate(4deg); }
+.polaroid.animate-in:nth-child(8n+5) { transform: scale(1) rotate(-2deg); }
+.polaroid.animate-in:nth-child(8n+6) { transform: scale(1) rotate(3deg); }
+.polaroid.animate-in:nth-child(8n+7) { transform: scale(1) rotate(-4deg); }
+.polaroid.animate-in:nth-child(8n+8) { transform: scale(1) rotate(1.5deg); }
+
+/* ==========================================================================
+   PhotoSwipe Customizations
+   ========================================================================== */
+
+.pswp {
+  --pswp-bg: rgba(26, 29, 31, 0.95);
+}
+
+.pswp__button {
+  color: var(--white);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pswp__button:hover,
+.pswp__button:focus {
+  color: var(--lime-400);
+  transform: scale(1.1);
+}
+
+.pswp__counter {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .gallery-hero {
+    min-height: 35vh;
+  }
+
+  .gallery-hero__content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .gallery-hero__icon {
+    font-size: 2.8rem;
+  }
+
+  .gallery-hero__subtitle {
+    font-size: var(--text-base);
+  }
+
+  .polaroid {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-hero__subtitle {
+    font-size: var(--text-xl);
+  }
+
+  .scrapbook-intro__text {
+    font-size: var(--text-lg);
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-hero__icon {
+    animation: none;
+  }
+
+  .polaroid {
+    transition: box-shadow 0.2s ease;
+  }
+
+  .polaroid:hover,
+  .polaroid:focus-within {
+    transform: rotate(0deg);
+  }
+
+  .polaroid:nth-child(n) {
+    transform: rotate(0deg);
+  }
+
+  .polaroid__image {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   CTA Section Adjustments (keeping existing styles)
+   ========================================================================== */
+
+.cta-section-new {
+  background: linear-gradient(135deg, var(--lime-400) 0%, var(--lime-500) 100%);
+}

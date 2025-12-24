@@ -1,0 +1,256 @@
+/**
+ * T Board Games & Cafe - Header & Navigation
+ * Sticky header with responsive navigation
+ */
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: var(--white);
+  transition: box-shadow var(--duration-base) var(--ease-smooth);
+}
+
+.header--scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .header__container {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+}
+
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header__logo img {
+  height: 40px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .header__logo img {
+    height: 48px;
+  }
+}
+
+.header__logo:hover {
+  opacity: 0.9;
+}
+
+.header__logo:focus-visible {
+  outline: 2px solid var(--lime-500);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.header__nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header__nav {
+    display: block;
+  }
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  margin: 0;
+}
+
+.nav__link {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--dark-800);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-base) var(--ease-smooth),
+              background-color var(--duration-base) var(--ease-smooth);
+}
+
+.nav__link:hover {
+  color: var(--lime-600);
+  background-color: var(--cream-100);
+  text-decoration: none;
+}
+
+.nav__link--active {
+  color: var(--lime-600);
+  background-color: var(--lime-400);
+  background-color: rgba(168, 217, 115, 0.2);
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--lime-500);
+  outline-offset: 2px;
+}
+
+
+/* ============================================
+   HEADER ACTIONS
+   ============================================ */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+
+/* ============================================
+   LANGUAGE TOGGLE
+   ============================================ */
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 40px;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--dark-800);
+  background-color: var(--cream-100);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-smooth);
+}
+
+.lang-toggle:hover {
+  background-color: var(--lime-400);
+  color: var(--dark-900);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--lime-500);
+  outline-offset: 2px;
+}
+
+/* Language indicator dot */
+.lang-toggle__indicator {
+  width: 8px;
+  height: 8px;
+  margin-left: var(--space-2);
+  background-color: var(--lime-500);
+  border-radius: var(--radius-full);
+}
+
+
+/* ============================================
+   MENU TOGGLE (HAMBURGER)
+   ============================================ */
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-smooth);
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.menu-toggle:hover {
+  background-color: var(--cream-100);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--lime-500);
+  outline-offset: 2px;
+}
+
+/* Hamburger icon */
+.menu-toggle__icon {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: var(--dark-800);
+  border-radius: var(--radius-full);
+  transition: background-color var(--duration-base) var(--ease-smooth);
+}
+
+.menu-toggle__icon::before,
+.menu-toggle__icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--dark-800);
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-base) var(--ease-smooth);
+}
+
+.menu-toggle__icon::before {
+  top: -7px;
+}
+
+.menu-toggle__icon::after {
+  bottom: -7px;
+}
+
+/* Hamburger to X animation */
+.menu-toggle--open .menu-toggle__icon {
+  background-color: transparent;
+}
+
+.menu-toggle--open .menu-toggle__icon::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle--open .menu-toggle__icon::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
