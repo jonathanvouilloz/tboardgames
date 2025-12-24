@@ -74,8 +74,8 @@
         "th": "สวรรค์บอร์ดเกมของคุณในเชียงใหม่"
       },
       "subtitle": {
-        "en": "100+ games | Cozy atmosphere | Open daily 1PM-12AM",
-        "th": "เกมมากกว่า 100 เกม | บรรยากาศสบาย | เปิดทุกวัน 13:00-00:00"
+        "en": "100+ games | Cozy atmosphere | Tue-Sun 1PM-12AM",
+        "th": "เกมมากกว่า 100 เกม | บรรยากาศสบาย | อ.-อา. 13:00-00:00"
       },
       "cta": {
         "text": { "en": "Explore Games", "th": "สำรวจเกม" },
@@ -178,8 +178,8 @@
     ],
     "hours": {
       "daily": {
-        "en": "Open Daily: 1:00 PM - 12:00 AM",
-        "th": "เปิดทุกวัน: 13:00 - 00:00"
+        "en": "Open Tue-Sun: 1:00 PM - 12:00 AM | Closed Mondays",
+        "th": "เปิด อ.-อา.: 13:00 - 00:00 | ปิดวันจันทร์"
       }
     },
     "pricing": {
@@ -334,17 +334,18 @@
         "th": "ถนนตนาดล เชียงใหม่ ประเทศไทย"
       }
     },
-    "phone": "+66 XX XXX XXXX",
-    "whatsapp": "+66XXXXXXXXX",
+    "phone": "+65 515 1544",
+    "whatsapp": "+65 515 1544",
     "email": "hello@tboardgames.com",
     "hours": {
       "daily": {
-        "en": "Open Daily: 1:00 PM - 12:00 AM",
-        "th": "เปิดทุกวัน: 13:00 - 00:00"
+        "en": "Open Tue-Sun: 1:00 PM - 12:00 AM | Closed Mondays",
+        "th": "เปิด อ.-อา.: 13:00 - 00:00 | ปิดวันจันทร์"
       }
     },
-    "googleMapsEmbed": "https://www.google.com/maps/embed?pb=...",
-    "googleMapsLink": "https://maps.app.goo.gl/...",
+
+    "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15107.157189961963!2d98.9386948871582!3d18.807541099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3b2325ba820d%3A0xe5629c22191ef971!2sT%20board%20games%20%26%20Cafe!5e0!3m2!1sfr!2sth!4v1766566773990!5m2!1sfr!2sth",
+    "googleMapsLink": "https://maps.app.goo.gl/DWrKZd3z4fZAPS6t6",
     "social": {
       "instagram": "https://instagram.com/tboardgamescafe",
       "tiktok": "https://tiktok.com/@tboardgamescafe",
